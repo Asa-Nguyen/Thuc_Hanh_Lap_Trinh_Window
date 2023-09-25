@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33927.289
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab03-01", "Lab03-01\Lab03-01.csproj", "{4B8A0B04-A306-4715-86FE-649FCCFEF52B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab03-02", "Lab03-02\Lab03-02.csproj", "{614CFEDD-0046-40EA-BFDB-48B54811C550}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab03-03", "Lab03-03\Lab03-03.csproj", "{AFE38FDC-53D0-41EE-A36B-0BC4C74B8A58}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4B8A0B04-A306-4715-86FE-649FCCFEF52B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B8A0B04-A306-4715-86FE-649FCCFEF52B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B8A0B04-A306-4715-86FE-649FCCFEF52B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B8A0B04-A306-4715-86FE-649FCCFEF52B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{614CFEDD-0046-40EA-BFDB-48B54811C550}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{614CFEDD-0046-40EA-BFDB-48B54811C550}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{614CFEDD-0046-40EA-BFDB-48B54811C550}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{614CFEDD-0046-40EA-BFDB-48B54811C550}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFE38FDC-53D0-41EE-A36B-0BC4C74B8A58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFE38FDC-53D0-41EE-A36B-0BC4C74B8A58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFE38FDC-53D0-41EE-A36B-0BC4C74B8A58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFE38FDC-53D0-41EE-A36B-0BC4C74B8A58}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0AF112FE-B209-4C69-AE4D-716C3C127CB6}
+	EndGlobalSection
+EndGlobal
