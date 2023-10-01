@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-namespace Lab03_01
-{
-    public partial class Form1 : Form
-    {
-        public Form1()
-        {
-            InitializeComponent();
-        }
-    }
-}
-=======
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,4 +32,3 @@ namespace Lab03_01
         }
     }
 }
->>>>>>> c29ed36222dd8190ff702d639482ca40ef934ad0

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Lab03_01
+namespace Lab03_04
 {
-    static class Program
+    internal static class Program
     {
         /// <summary>
         /// The main entry point for the application.

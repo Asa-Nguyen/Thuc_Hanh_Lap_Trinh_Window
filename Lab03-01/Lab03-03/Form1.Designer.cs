@@ -37,6 +37,7 @@ namespace Lab03_03
             this.gpa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addButton = new System.Windows.Forms.Button();
             this.textBoxFind = new System.Windows.Forms.TextBox();
+            this.buttonFind = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.studentList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,47 +53,56 @@ namespace Lab03_03
             this.ten,
             this.faculity,
             this.gpa});
-            this.studentList.Location = new System.Drawing.Point(-1, 129);
+            this.studentList.Location = new System.Drawing.Point(-1, 159);
+            this.studentList.Margin = new System.Windows.Forms.Padding(4);
             this.studentList.Name = "studentList";
             this.studentList.ReadOnly = true;
-            this.studentList.Size = new System.Drawing.Size(801, 322);
+            this.studentList.RowHeadersWidth = 51;
+            this.studentList.Size = new System.Drawing.Size(1068, 396);
             this.studentList.TabIndex = 0;
+
             // 
             // stt
             // 
             this.stt.HeaderText = "số thứ tự";
+            this.stt.MinimumWidth = 6;
             this.stt.Name = "stt";
             this.stt.ReadOnly = true;
             // 
             // mssv
             // 
             this.mssv.HeaderText = "Mã số sinh viên";
+            this.mssv.MinimumWidth = 6;
             this.mssv.Name = "mssv";
             this.mssv.ReadOnly = true;
             // 
             // ten
             // 
             this.ten.HeaderText = "Họ tên";
+            this.ten.MinimumWidth = 6;
             this.ten.Name = "ten";
             this.ten.ReadOnly = true;
             // 
             // faculity
             // 
             this.faculity.HeaderText = "Khoa";
+            this.faculity.MinimumWidth = 6;
             this.faculity.Name = "faculity";
             this.faculity.ReadOnly = true;
             // 
             // gpa
             // 
             this.gpa.HeaderText = "điểm tb";
+            this.gpa.MinimumWidth = 6;
             this.gpa.Name = "gpa";
             this.gpa.ReadOnly = true;
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(12, 72);
+            this.addButton.Location = new System.Drawing.Point(16, 89);
+            this.addButton.Margin = new System.Windows.Forms.Padding(4);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(75, 23);
+            this.addButton.Size = new System.Drawing.Size(100, 28);
             this.addButton.TabIndex = 1;
             this.addButton.Text = "Thêm";
             this.addButton.UseVisualStyleBackColor = true;
@@ -100,20 +110,32 @@ namespace Lab03_03
             // 
             // textBoxFind
             // 
-            this.textBoxFind.Location = new System.Drawing.Point(459, 72);
+            this.textBoxFind.Location = new System.Drawing.Point(612, 89);
+            this.textBoxFind.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxFind.Name = "textBoxFind";
-            this.textBoxFind.Size = new System.Drawing.Size(100, 20);
+            this.textBoxFind.Size = new System.Drawing.Size(132, 22);
             this.textBoxFind.TabIndex = 2;
-            this.textBoxFind.Text = "Tìm kiếm theo tên";
+            // 
+            // buttonFind
+            // 
+            this.buttonFind.Location = new System.Drawing.Point(818, 89);
+            this.buttonFind.Name = "buttonFind";
+            this.buttonFind.Size = new System.Drawing.Size(75, 23);
+            this.buttonFind.TabIndex = 3;
+            this.buttonFind.Text = "Tìm";
+            this.buttonFind.UseVisualStyleBackColor = true;
+            this.buttonFind.Click += new System.EventHandler(this.buttonFind_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.buttonFind);
             this.Controls.Add(this.textBoxFind);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.studentList);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Quản lý sinh viên";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -124,8 +146,6 @@ namespace Lab03_03
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView studentList;
         private System.Windows.Forms.DataGridViewTextBoxColumn stt;
         private System.Windows.Forms.DataGridViewTextBoxColumn mssv;
         private System.Windows.Forms.DataGridViewTextBoxColumn ten;
@@ -133,6 +153,8 @@ namespace Lab03_03
         private System.Windows.Forms.DataGridViewTextBoxColumn gpa;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.TextBox textBoxFind;
+        public System.Windows.Forms.DataGridView studentList;
+        private System.Windows.Forms.Button buttonFind;
     }
 }
 
