@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Phan_Mem_Quan_Ly.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,92 +14,93 @@ namespace Phan_Mem_Quan_Ly.GUI
 {
     public partial class SellForm : Form
     {
-        List<Table> tables = new List<Table>();
-        List<Category> categories = new List<Category>();
-        List<Drink> drinks = new List<Drink>();
-        Button pointer = new Button();
 
 
         public SellForm()
         {
             InitializeComponent();
-            for (int i = 1; i < 26; i++)
-            {
-                tables.Add(new Table(i, "Table" + i));
-            }
-            categories = new List<Category>()
-            {
-                new Category(){IdCategory = 1, NameCategory = "Cafe"},
-                new Category(){IdCategory = 2, NameCategory = "Juice"}
-            };
-            drinks = new List<Drink>()
-            {
-                new Drink(1,"Milk Cafe",30000),
-                new Drink(2,"Black Cafe",20000),
-                new Drink(3,"Apple juice",40000),
-                new Drink(4,"Mango juice",50000),
-            };
-            pointer = null;
         }
 
         private void SellForm_Load(object sender, EventArgs e)
         {
             InitialTableList();
-            ComboxCategory.DataSource = categories;
-            ComboxDrink.DataSource = drinks;
-            ComboxTable.DataSource = tables;
-            ConfigSetting();
+            using(var dbContext = new Manager())
+            {
+                ComboxCategory.DataSource = dbContext.Danh_Mucs.Select(c => new {c.Ten,c.Ma}).ToList();
+
+            }
+/*            ConfigSetting();*/
         }
         private void InitialTableList()
         {
             int x = 74; int y = 39; int i = 1;
-            foreach (Table table in tables)
+            using (var dbContext = new Manager())
             {
-                DrawTable(x,y,table);
-                
-                if (i++ %5==0)
+                foreach (var table in dbContext.Bans.Select(c => new {c.Ten, c.Ma }).ToList())
                 {
-                    x = 74;
-                    y += 150;
+                    DrawTable(x, y, table.Ma);
+
+                    if (i++ % 5 == 0)
+                    {
+                        x = 74;
+                        y += 150;
+                    }
+                    x += 150;
                 }
-                x += 150;
             }
+                
         }
 
-        private void DrawTable(int x, int y, Table table)
+        private void DrawTable(int x, int y, int table)
         {
             Button btn = new Button();
-            btn.Text = table.name_table;
-            btn.Tag = table.id_table;
+            btn.Text = table.ToString();
+            btn.Tag = table.ToString();
             btn.Size = new Size(60,60);
             btn.Location = new Point(x,y);
             btn.BackColor = Color.White;
             TableList.Controls.Add(btn);
-            btn.Click += Btn_Click;
+/*            btn.Click += Btn_Click;*/
         }
-        private void Btn_Click(object sender, EventArgs e)
+/*        private void Btn_Click(object sender, EventArgs e)
         {
-            Button btn = (Button)sender; 
-            if(pointer == null)
+            Button btn = (Button)sender;
+            using (var dbContext = new Manager())
             {
-                pointer = btn;
-                pointer.BackColor = Color.Yellow;
+                foreach(var table in dbContext.Bans.Select(c => new { c.Ma, c.Ten }).ToList())
+                {
+                    if (table == null)
+                    {
+                        table = btn;
+                        pointer.BackColor = Color.Yellow;
+                    }
+                    else if (pointer != btn)
+                    {
+                        pointer.BackColor = Color.White;
+                        pointer = btn;
+                        pointer.BackColor = Color.Yellow;
+                    }
+                    else
+                    {
+                        pointer.BackColor = Color.Yellow;
+                        pointer = null;
+                    }
+                }
             }
-            else if (pointer != btn)
-            {
-                pointer.BackColor = Color.White;
-                pointer = btn;
-                pointer.BackColor = Color.Yellow;
-            }
-            else
-            {
-                pointer.BackColor = Color.Yellow;
-                pointer = null;
-            }
-        }
+                
+        }*/
         private void ConfigSetting()
         {
-            ComboxCategory.DisplayMember = "NameCategory";
+            using (var dbContext = new Manager())
+            {
+                foreach (var category in dbContext.Danh_Mucs.Select(c => new { c.Ten, c.Ma }).ToList())
+                {
+                    ComboxCategory.DisplayMember = category.Ten.ToString();
+                    ComboxCategory.ValueMember = category.Ma.ToString();
+                    ComboxCategory.DropDownStyle = ComboBoxStyle.DropDownList;
+                }
+            }
+/*            ComboxCategory.DisplayMember = "NameCategory";
             ComboxCategory.ValueMember = "IdCategory";
             ComboxCategory.DropDownStyle = ComboBoxStyle.DropDownList;
 
@@ -106,7 +109,7 @@ namespace Phan_Mem_Quan_Ly.GUI
             ComboxDrink.DropDownStyle = ComboBoxStyle.DropDownList;
 
             ComboxTable.DisplayMember = "id_table";
-            ComboxTable.DropDownStyle = ComboBoxStyle.DropDownList;
+            ComboxTable.DropDownStyle = ComboBoxStyle.DropDownList;*/
         }
 
 
